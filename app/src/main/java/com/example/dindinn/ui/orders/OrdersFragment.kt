@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import com.example.dindinn.R
 import com.example.dindinn.base.BaseFragment
 import com.example.dindinn.databinding.FragmentOrdersBinding
+import com.example.dindinn.ui.orderdetails.OrderDetailsFragment
 
 class OrdersFragment : BaseFragment() {
 
@@ -16,6 +19,7 @@ class OrdersFragment : BaseFragment() {
 
     private val viewModel: OrdersViewModel by viewModels()
     private lateinit var mBinding: FragmentOrdersBinding
+    private lateinit var ordersAdapter: OrdersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +29,29 @@ class OrdersFragment : BaseFragment() {
         mBinding = FragmentOrdersBinding.inflate(layoutInflater, container, false)
         mBinding.lifecycleOwner = viewLifecycleOwner
         mBinding.viewModel = viewModel
+        init()
+        initObserving()
 
         return mBinding.root
     }
 
+    private fun init() {
+        ordersAdapter = OrdersAdapter {
+            navController.navigate(
+                R.id.action_ordersFragment_to_orderDetailsFragment, bundleOf(
+                    OrderDetailsFragment.ARG_ORDER_DETAILS to it
+                )
+            )
+        }
+        mBinding.rvOrders.adapter = ordersAdapter
+        if (viewModel.items.value!!.isNullOrEmpty()) { // first load
+            viewModel.getOrders()
+        } else {  // when get back and items already loaded
+            ordersAdapter.submitList(viewModel.items.value!!)
+        }
+    }
+
+    private fun initObserving() {
+        viewModel.items.observe(viewLifecycleOwner, { ordersAdapter.submitList(it) })
+    }
 }

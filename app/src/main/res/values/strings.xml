@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DinDinn</string>
     <string name="dismiss">dismiss</string>
+    <string name="alert_order">order will expired soon.</string>
 </resources>

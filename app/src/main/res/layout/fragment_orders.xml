@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewModel"
@@ -11,10 +11,15 @@
         android:layout_height="match_parent"
         tools:context=".ui.orders.OrdersFragment">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrders"
+            android:name="sa.com.dataserve.android.moamalat.CorrespondenceFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello Orders" />
+            android:layout_marginTop="5dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context=".ui.inbox.InboxFragment"
+            tools:listitem="@layout/item_order" />
 
     </FrameLayout>
 </layout>
