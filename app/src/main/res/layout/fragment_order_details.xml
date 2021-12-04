@@ -97,6 +97,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:cornerRadius="25dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTint="@color/teal_200"
+            android:src="@drawable/ic_ingredients" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

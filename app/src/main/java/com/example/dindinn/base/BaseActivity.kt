@@ -48,7 +48,7 @@ class BaseActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return when (navController.currentDestination?.id) {
-            R.id.orderDetailsFragment -> {
+            R.id.orderDetailsFragment, R.id.categoriesFragment -> {
                 onBackPressed()
                 true
             }

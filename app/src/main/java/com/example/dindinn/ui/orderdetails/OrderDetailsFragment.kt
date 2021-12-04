@@ -5,7 +5,6 @@ import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.dindinn.R
@@ -23,13 +22,7 @@ class OrderDetailsFragment : BaseFragment() {
 
     companion object {
         const val ARG_ORDER_DETAILS = "orderDetails"
-        fun newInstance(
-            orderDetails: Data
-        ) : OrderDetailsFragment{
-            val fragment = OrderDetailsFragment()
-            fragment.arguments = bundleOf(ARG_ORDER_DETAILS to orderDetails)
-            return fragment
-        }
+        fun newInstance() = OrderDetailsFragment()
     }
 
     private val viewModel: OrderDetailsViewModel by viewModels()
@@ -56,6 +49,9 @@ class OrderDetailsFragment : BaseFragment() {
         mBinding.btnAccept.setOnClickListener {
             viewModel.orderDetails.value!!.disposableProcess?.dispose()
             getBackAndRemoveOrder()
+        }
+        mBinding.btnCategories.setOnClickListener {
+            navController.navigate(R.id.action_orderDetailsFragment_to_categoriesFragment)
         }
     }
 

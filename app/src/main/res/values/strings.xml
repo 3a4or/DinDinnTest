@@ -6,4 +6,5 @@
     <string name="label_auto_reject">Auto reject</string>
     <string name="label_okay">Okay</string>
     <string name="label_accept">Accept</string>
+    <string name="label_search">Search for an item</string>
 </resources>

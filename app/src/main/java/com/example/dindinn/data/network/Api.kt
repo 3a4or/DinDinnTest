@@ -1,11 +1,12 @@
 package com.example.dindinn.data.network
 
-import com.example.dindinn.data.entities.OrdersResponse
+import com.example.dindinn.data.entities.SearchResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface Api {
 
-    @GET("list.php?c=list")
-    fun getOrders(): Observable<OrdersResponse?>
+    @GET("search.php?i=")
+    fun getSearchResults(@Query("i") i: String): Observable<SearchResponse?>
 }
