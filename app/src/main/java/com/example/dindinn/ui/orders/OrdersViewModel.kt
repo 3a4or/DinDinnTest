@@ -1,10 +1,10 @@
 package com.example.dindinn.ui.orders
 
+import androidx.lifecycle.MutableLiveData
 import com.example.dindinn.MyApp
 import com.example.dindinn.base.BaseViewModel
 import com.example.dindinn.data.entities.Data
 import com.example.dindinn.data.entities.OrdersResponse
-import com.example.dindinn.utils.SingleLiveEvent
 import com.google.gson.Gson
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -13,11 +13,7 @@ import java.io.InputStream
 
 class OrdersViewModel : BaseViewModel() {
 
-    var items = SingleLiveEvent<List<Data>>()
-
-    init {
-        items.value = emptyList()
-    }
+    var items = MutableLiveData<MutableList<Data>>(mutableListOf())
 
     fun getOrders() {
         Observable.just(readJSONFromAsset())
@@ -25,7 +21,7 @@ class OrdersViewModel : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 val orders = Gson().fromJson(it, OrdersResponse::class.java)
-                items.value = orders.data
+                items.value = orders.data.toMutableList()
             }
     }
 

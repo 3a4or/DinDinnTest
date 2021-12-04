@@ -1,5 +1,6 @@
 package com.example.dindinn.data.entities
 
+import io.reactivex.rxjava3.disposables.Disposable
 import java.io.Serializable
 
 data class Data(
@@ -10,7 +11,9 @@ data class Data(
     val id: Int,
     val quantity: Int,
     val title: String,
-    var lastTime: Long?,
+    var lastTime: Long = 0,
+    var expiredTime: Long,
     var expired: Boolean = false,
-    var hasCounter: Boolean = false
+    var hasCounter: Boolean = false,
+    var disposableProcess: Disposable?
 ): Serializable

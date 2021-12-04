@@ -46,6 +46,16 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return when (navController.currentDestination?.id) {
+            R.id.orderDetailsFragment -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onSupportNavigateUp()
+        }
+    }
+
     private fun showError(message: String) {
         Snackbar.make(
             findViewById(android.R.id.content),

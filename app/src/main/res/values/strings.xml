@@ -2,4 +2,8 @@
     <string name="app_name">DinDinn</string>
     <string name="dismiss">dismiss</string>
     <string name="alert_order">order will expired soon.</string>
+    <string name="label_at">at  </string>
+    <string name="label_auto_reject">Auto reject</string>
+    <string name="label_okay">Okay</string>
+    <string name="label_accept">Accept</string>
 </resources>

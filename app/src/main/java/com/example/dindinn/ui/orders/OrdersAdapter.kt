@@ -17,6 +17,7 @@ import com.example.dindinn.data.entities.Data
 import com.example.dindinn.databinding.ItemOrderBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.text.SimpleDateFormat
 import java.util.*
@@ -60,13 +61,14 @@ class OrdersAdapter(private val consumer: (Data) -> Unit)
 
             val alertTime = ((alertedAtAtValue.time - createdAtValue.time) / 1000) / 60
             val expiredTime = ((expiredAtAtValue.time - createdAtValue.time) / 1000) / 60
+            item.expiredTime = expiredTime
             startCounter(alertTime, expiredTime, item)
             Log.e("TTT", "Times of ${item.id} : $alertTime : expired: $expiredTime")
         }
 
         private fun startCounter(alertTime: Long, expiredTime: Long, item: Data) {
             Log.e("ZZZ", "Staaaaaaaaraaaaaart ------- ${item.id}")
-            Observable.interval(1, TimeUnit.MINUTES)
+            val disposableProcess: Disposable? = Observable.interval(1, TimeUnit.MINUTES)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
@@ -82,6 +84,7 @@ class OrdersAdapter(private val consumer: (Data) -> Unit)
                     Log.e("ZZZ", "finished item: ${item.id}")
                 }
                 .subscribe()
+            item.disposableProcess = disposableProcess
         }
 
         private fun startAlert(item: Data) {
