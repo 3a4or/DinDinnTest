@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dindinn.MyApp
 import com.example.dindinn.R
-import com.example.dindinn.data.entities.Data
+import com.example.dindinn.data.entities.order.Data
 import com.example.dindinn.databinding.ItemOrderBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable

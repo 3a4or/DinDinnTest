@@ -3,37 +3,38 @@
     <data>
         <variable
             name="item"
-            type="com.example.dindinn.data.entities.order.Data" />
+            type="com.example.dindinn.data.entities.ingredients.Ingredient" />
     </data>
     <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/itemCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        app:cardElevation="4dp">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="7dp"
+        app:cardElevation="3dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
+            <ImageView
+                android:id="@+id/imgThumb"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                app:layout_constraintTop_toTopOf="parent"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{item.title}"
+                android:text="@{item.strDrink}"
+                android:gravity="center"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textSize="18sp"
                 android:textColor="@color/purple_700"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_next"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/imgThumb"
+                android:layout_margin="7dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

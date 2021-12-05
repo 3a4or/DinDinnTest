@@ -1,4 +1,4 @@
-package com.example.dindinn.data.entities
+package com.example.dindinn.data.entities.order
 
 import io.reactivex.rxjava3.disposables.Disposable
 import java.io.Serializable

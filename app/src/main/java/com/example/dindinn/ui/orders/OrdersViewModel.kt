@@ -3,8 +3,8 @@ package com.example.dindinn.ui.orders
 import androidx.lifecycle.MutableLiveData
 import com.example.dindinn.MyApp
 import com.example.dindinn.base.BaseViewModel
-import com.example.dindinn.data.entities.Data
-import com.example.dindinn.data.entities.OrdersResponse
+import com.example.dindinn.data.entities.order.Data
+import com.example.dindinn.data.entities.order.OrdersResponse
 import com.google.gson.Gson
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable

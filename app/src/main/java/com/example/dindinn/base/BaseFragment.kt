@@ -17,6 +17,16 @@ abstract class BaseFragment : Fragment() {
 
     protected fun setBaseViewModel(baseViewModel: BaseViewModel) {
         mBaseViewModel = baseViewModel
+        baseViewModel.dataLoading.observe(this, {
+            showLoading(it)
+        })
+    }
+
+    private fun showLoading(show: Boolean) {
+        val base = requireActivity()
+        if (base is BaseActivity) {
+            base.showHideProgress(show)
+        }
     }
 
     protected open fun showSuccess(message: String) {

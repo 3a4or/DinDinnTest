@@ -56,6 +56,10 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
+    fun showHideProgress(show: Boolean) {
+        viewModel.dataLoading.value = show
+    }
+
     private fun showError(message: String) {
         Snackbar.make(
             findViewById(android.R.id.content),

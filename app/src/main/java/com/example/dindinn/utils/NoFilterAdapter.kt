@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
 import android.widget.TextView
-import com.example.dindinn.data.entities.Ingredient
+import com.example.dindinn.data.entities.search.Ingredient
 import java.util.*
 
 class NoFilterAdapter<T>(context: Context, resource: Int) :

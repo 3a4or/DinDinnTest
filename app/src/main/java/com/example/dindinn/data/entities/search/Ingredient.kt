@@ -1,4 +1,4 @@
-package com.example.dindinn.data.entities
+package com.example.dindinn.data.entities.search
 
 data class Ingredient(
     val idIngredient: String?,

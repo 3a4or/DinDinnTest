@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.dindinn.R
 import com.example.dindinn.base.BaseFragment
-import com.example.dindinn.data.entities.Data
+import com.example.dindinn.data.entities.order.Data
 import com.example.dindinn.databinding.FragmentOrderDetailsBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable

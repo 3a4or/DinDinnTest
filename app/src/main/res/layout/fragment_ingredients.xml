@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
     <data>
         <variable
             name="viewModel"
-            type="com.example.dindinn.ui.orders.OrdersViewModel" />
+            type="com.example.dindinn.ui.ingredients.IngredientsViewModel" />
     </data>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.orders.OrdersFragment">
+        tools:context=".ui.ingredients.IngredientsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvOrders"
+            android:id="@+id/rvIngredients"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/item_order" />
+            tools:listitem="@layout/item_ingredient" />
 
     </FrameLayout>
 </layout>

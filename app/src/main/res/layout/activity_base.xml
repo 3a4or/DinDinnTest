@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.example.dindinn.base.BaseViewModel" />
@@ -58,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:indeterminateTint="@color/purple_700"
-            android:visibility="gone"
+            android:visibility="@{viewModel.dataLoading ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
