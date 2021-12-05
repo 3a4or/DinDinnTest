@@ -1,7 +1,6 @@
 package com.example.dindinn.ui.orderdetails
 
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,7 @@ class OrderDetailsFragment : BaseFragment() {
 
     private val viewModel: OrderDetailsViewModel by viewModels()
     private lateinit var mBinding: FragmentOrderDetailsBinding
-    private lateinit var mCountDownTimer: CountDownTimer
+    private lateinit var addOnesAdapter: AddOnesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +37,7 @@ class OrderDetailsFragment : BaseFragment() {
         mBinding.lifecycleOwner = viewLifecycleOwner
         mBinding.viewModel = viewModel
         initClicks()
+        initAdapter()
 
         return mBinding.root
     }
@@ -74,6 +74,7 @@ class OrderDetailsFragment : BaseFragment() {
         val minutes = cal[Calendar.MINUTE]
         mBinding.tvTime.text = getString(R.string.label_at) + " " + hours + " : " + minutes
         showHideComponents()
+        addOnesAdapter.submitList(viewModel.orderDetails.value!!.addon)
     }
 
     private fun showHideComponents() {
@@ -106,6 +107,11 @@ class OrderDetailsFragment : BaseFragment() {
                 mBinding.btnAccept.isVisible = false
             }
             .subscribe()
+    }
+
+    private fun initAdapter() {
+        addOnesAdapter = AddOnesAdapter()
+        mBinding.rvAddOnes.adapter = addOnesAdapter
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

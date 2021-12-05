@@ -4,6 +4,6 @@ import java.io.Serializable
 
 data class Addon(
     val id: Int,
-    val quantity: Int,
+    val quantity: String,
     val title: String
 ): Serializable

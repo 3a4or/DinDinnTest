@@ -47,6 +47,7 @@
             tools:text="at 12:50" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tvTime"
@@ -97,6 +98,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:cornerRadius="25dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAddOnes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/item_addon"
+            app:layout_constraintTop_toBottomOf="@+id/clContainer"/>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnCategories"
             android:layout_width="wrap_content"
