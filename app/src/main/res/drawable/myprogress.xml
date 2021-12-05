@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Item background and progress order cannot be reversed-->
+    <item android:id="@+id/background" >
+        <shape android:shape= "line">
+            <stroke
+                android:width= "8dp" android:color= "@color/color_filter4"
+            android:dashWidth="35dp" android:dashGap="3dp" />
+        </shape>
+    </item>
+    <item android:id= "@android:id/progress" >
+        <clip>
+            <shape android:shape = "line" >
+                <corners android:radius="5dp" />
+                <stroke
+                    android:width= "8dp" android:color= "@color/grey"
+                    android:dashWidth="35dp" android:dashGap="3dp"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

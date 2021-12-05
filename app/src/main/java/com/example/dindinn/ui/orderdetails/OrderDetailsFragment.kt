@@ -1,6 +1,7 @@
 package com.example.dindinn.ui.orderdetails
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class OrderDetailsFragment : BaseFragment() {
     private val viewModel: OrderDetailsViewModel by viewModels()
     private lateinit var mBinding: FragmentOrderDetailsBinding
     private lateinit var addOnesAdapter: AddOnesAdapter
+    private lateinit var countDownTimer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -109,6 +111,28 @@ class OrderDetailsFragment : BaseFragment() {
                 mBinding.btnAccept.isVisible = false
             }
             .subscribe()
+        startCounter(diff)
+    }
+
+    private fun startCounter(counter: Long) {
+        countDownTimer = object : CountDownTimer(counter * 60 * 1000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                mBinding.tvCounter.text = "" + String.format(
+                    Locale.ENGLISH,
+                    "%02d : %02d s",
+                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                            TimeUnit.MINUTES.toSeconds(
+                                TimeUnit.MILLISECONDS.toMinutes(
+                                    millisUntilFinished
+                                )
+                            )
+                )
+            }
+            override fun onFinish() {
+
+            }
+        }.start()
     }
 
     private fun initAdapter() {
