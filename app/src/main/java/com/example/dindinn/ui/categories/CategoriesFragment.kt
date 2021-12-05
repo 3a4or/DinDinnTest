@@ -14,8 +14,10 @@ import com.example.dindinn.utils.NoFilterAdapter
 import com.example.dindinn.utils.PagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.AbstractMap
 
+@AndroidEntryPoint
 class CategoriesFragment : BaseFragment() {
 
     companion object {

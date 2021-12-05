@@ -11,7 +11,9 @@ import com.example.dindinn.base.BaseFragment
 import com.example.dindinn.data.entities.order.Data
 import com.example.dindinn.databinding.FragmentOrdersBinding
 import com.example.dindinn.ui.orderdetails.OrderDetailsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrdersFragment : BaseFragment() {
 
     companion object {

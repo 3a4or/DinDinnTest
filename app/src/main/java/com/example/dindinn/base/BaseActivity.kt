@@ -14,7 +14,9 @@ import com.example.dindinn.data.network.NetworkEvent
 import com.example.dindinn.data.network.NetworkState
 import com.example.dindinn.databinding.ActivityBaseBinding
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BaseActivity : AppCompatActivity() {
 
     private lateinit var activityBaseBinding: ActivityBaseBinding

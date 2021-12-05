@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dindinn.MyApp
 import com.example.dindinn.base.BaseFragment
 import com.example.dindinn.databinding.FragmentIngredientsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IngredientsFragment : BaseFragment() {
 
     companion object {

@@ -3,7 +3,6 @@ package com.example.dindinn.ui.orders
 import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -63,25 +62,21 @@ class OrdersAdapter(private val consumer: (Data) -> Unit)
             val expiredTime = ((expiredAtAtValue.time - createdAtValue.time) / 1000) / 60
             item.expiredTime = expiredTime
             startCounter(alertTime, expiredTime, item)
-            Log.e("TTT", "Times of ${item.id} : $alertTime : expired: $expiredTime")
         }
 
         private fun startCounter(alertTime: Long, expiredTime: Long, item: Data) {
-            Log.e("ZZZ", "Staaaaaaaaraaaaaart ------- ${item.id}")
             val disposableProcess: Disposable? = Observable.interval(1, TimeUnit.MINUTES)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
                     item.lastTime = it + 1 // we add ( + 1) because counter starts from 0
                     if (it + 1 == alertTime) {
-                        Log.e("ZZZ", "alert item ${item.id} at $it")
                         startAlert(item)
                     }
                 }
                 .takeUntil { aLong -> aLong == expiredTime - 1 }
                 .doOnComplete {
                     item.expired = true
-                    Log.e("ZZZ", "finished item: ${item.id}")
                 }
                 .subscribe()
             item.disposableProcess = disposableProcess

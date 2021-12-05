@@ -10,6 +10,7 @@ import com.example.dindinn.R
 import com.example.dindinn.base.BaseFragment
 import com.example.dindinn.data.entities.order.Data
 import com.example.dindinn.databinding.FragmentOrderDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
+@AndroidEntryPoint
 class OrderDetailsFragment : BaseFragment() {
 
     companion object {
